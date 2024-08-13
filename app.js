@@ -6,3 +6,39 @@ menuBtn.addEventListener('click', () => {
     navigation.classList.toggle('active');
     menuBtn.classList.toggle('active');
 });
+
+
+function validateForm() {
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let message = document.getElementById("message").value.trim();
+
+    document.getElementById("nameError").textContent = "";
+    document.getElementById("emailError").textContent = "";
+    document.getElementById("messageError").textContent = "";
+
+    let isValid = true;
+
+    if (name === "") {
+        document.getElementById("nameError").textContent = "Le champ 'Name' ne doit pas être vide.";
+        isValid = false;
+    }
+
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        document.getElementById("emailError").textContent = "Veuillez entrer une adresse email valide.";
+        isValid = false;
+    }
+
+    if (message === "") {
+        document.getElementById("messageError").textContent = "Le champ 'Message' ne doit pas être vide.";
+        isValid = false;
+    }
+
+    if (!isValid) {
+        return false;
+    }
+
+    alert("Formulaire soumis avec succès !");
+    return true;
+}

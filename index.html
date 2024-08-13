@@ -32,7 +32,7 @@
         </div>
        
     </section>
-    <section class="">
+    <section class="PhotoGrid">
         <div class="container">
             <div class="textL">
                 <h1 class="titre">Lorem, ipsum dolor.</h1>
@@ -54,7 +54,39 @@
     </section>
 
 
+    <section class="About">
+        <div class="container">
+            <div class="textL">
+                <h1 class="titre">About Us</h1>
+            </div>
+    
+            <div class="textL">
+                <h3 class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, veniam.</h3>
+            </div>
+                
+            </div>
+        </div>
+    </section>
 
+
+
+    <section class="contactForm">
+        <div class="containerContact">
+            <div class="contact-box">
+                <div class="left"></div>
+                <div class="right">
+                    <h2>Contact Us</h2>
+                    <input type="text" id="name" class="field" placeholder="Your Name">
+                    <span id="nameError" class="error"></span>
+                    <input type="text" id="email" class="field" placeholder="Your Email">
+                    <span id="emailError" class="error"></span>
+                    <textarea placeholder="Message" id="message" class="field"></textarea>
+                    <span id="messageError" class="error"></span>
+                    <button class="btn" onclick="validateForm()">Send</button>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 <script src="app.js"></script>
 </html>
