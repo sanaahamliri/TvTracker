@@ -24,7 +24,7 @@ function validateForm() {
         isValid = false;
     }
 
-    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let emailPattern =/^[a-zA-Z0-9._-]+@[a-z]+\.[a-z]{2,3}$/;
     if (!emailPattern.test(email)) {
         document.getElementById("emailError").textContent = "Veuillez entrer une adresse email valide.";
         isValid = false;
