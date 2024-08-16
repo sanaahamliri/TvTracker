@@ -43,6 +43,7 @@ function validateForm() {
     return true;
 }
 
+
 const slides = document.querySelectorAll('.slideshow img');
 let currentIndex = 0;
 
