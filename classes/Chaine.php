@@ -58,10 +58,3 @@ class Chaine
 
     
 }
-$test = new Chaine(3,"2M", "fikom watiqon");
-echo $test->GetName();
-echo $test->GetDescription();
-
-$test->EditDetailsChaine("AL OULA","ssssss");
-echo $test->GetName();
-echo $test->GetDescription();

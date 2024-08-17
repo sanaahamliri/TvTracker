@@ -1,64 +1,70 @@
 <?php
-require './Media.php';
+include './Media.php';
 require './Chaine.php';
 require './Genre.php';
 
-class Emission extends Media{
+class Emission extends Media
+{
 
-  private $durée;
-  private $genre;
+    private $durée;
+    private $genre;
+    private $chaines = [];
 
-public function __construct($id, $titre, $description,$durée, Genre $genre){
+    public function __construct($id, $titre, $description, $durée, Genre $genre)
+    {
 
-   parent::__construct($id, $titre, $description);
+        parent::__construct($id, $titre, $description);
 
-   $this->durée = $durée;
-   $this->genre = $genre;
+        $this->durée = $durée;
+        $this->genre = $genre;
+    }
+
+
+    public function SetDuree($durée)
+    {
+        $this->durée = $durée;
+    }
+
+
+    public function GetDuree()
+    {
+        return $this->durée;
+    }
+
+
+    public function AddChaine(Chaine $chaine)
+    {
+
+        $this->chaines[] = $chaine;
+    }
+
+    public function afficherDetails()
+    {
+        echo " Les détails d'Emission : <br>  titre:" . $this->GetTitre() . "<br>  description : " . $this->GetDescription() . "<br>  durée : " . $this->GetDuree() . "<br> \t genre : " . $this->genre->getGenreName();
+        echo "<br> chaines associes :";
+        foreach ($this->chaines as $chaine) {
+            echo "  " . $chaine->GetName();
+        }
+    }
+
+
+    public function EditDetails($titre, $description, $durée, Genre $Newgenre)
+    {
+        $this->SetTitre($titre);
+        $this->SetDescription($description);
+        $this->SetDuree($durée);
+        $this->genre->EditGenre($Newgenre->getGenreName(), $Newgenre->getGenreDescription());
+    }
+
+    public function DeleteChaine(Chaine $chaine)
+    {
+
     
-}
-
-
-public function SetDuree($durée){
-    $this->durée = $durée ;
-}
-
-
-public function GetDuree(){
-    return $this->durée;
-}
-
-
-public function SetGenre($genre){
-    $this->genre = $genre ;
-}
-
-
-public function GetGenre(){
-    return $this->genre;
-}
-
-
-
-    public function afficherDetails(){
-        return " Les détails d'Emission \n titre:" . $this->GetTitre() . "\n description : " .$this->GetDescription() . "\n durée : " .$this->GetDuree() . "\n genre : " .$this->GetGenre() ;
-    }
-
-
-    public function AddChaine(){
-
-    }
-
-    public function EditDetails(){
+       $Exist = array_search($chaine,$this->chaines);
+       
+        if($Exist){
+            unset($this->chaines[$Exist]);
+        }
         
     }
-
-    public function DeleteChaine(){
-        
-    }
-
 }
-
-$test = new Emission(2,"sanaa", "hamliri", "1h 30min", "drama");
-
-echo $test->afficherDetails();
-

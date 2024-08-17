@@ -15,9 +15,30 @@ class Genre{
                 $this->description = $description;
     }
 
-    public function EditDetailsGenre(){
-        
-    }
+    
+public function getGenreName(){
+    return $this->nom;
+}
 
+public function getGenreDescription(){
+    return $this->description;
+}
+
+
+   
+public function setGenreName($nom){
+    $this->nom = $nom;
+}
+
+public function setGenreDescription($description){
+    $this->description = $description;
+}
+
+
+public function EditGenre($NewnameGenre, $NewdescriptionGenre)
+{
+        $this->setGenreName($NewnameGenre);
+        $this-> setGenreDescription($NewdescriptionGenre);
+}
 
 }
