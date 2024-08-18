@@ -15,7 +15,6 @@ class Genre{
                 $this->description = $description;
     }
 
-    
 public function getGenreName(){
     return $this->nom;
 }

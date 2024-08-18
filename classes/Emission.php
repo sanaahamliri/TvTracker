@@ -1,7 +1,7 @@
 <?php
-include './Media.php';
-require './Chaine.php';
-require './Genre.php';
+include_once './Media.php';
+include_once './Chaine.php';
+include_once './Genre.php';
 
 class Emission extends Media
 {
@@ -53,7 +53,7 @@ class Emission extends Media
         $this->SetTitre($titre);
         $this->SetDescription($description);
         $this->SetDuree($durée);
-        $this->genre->EditGenre($Newgenre->getGenreName(), $Newgenre->getGenreDescription());
+        $this->genre = $Newgenre;
     }
 
     public function DeleteChaine(Chaine $chaine)

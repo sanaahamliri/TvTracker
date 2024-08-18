@@ -5,23 +5,27 @@ class Producteur{
     private $id;
     private $nom;
     private $description;
-    private $émissionProposées;
+    private $émissionProposées = [];
 
 
-    public function __construct($id, $nom, $description, $émissionProposées){
+    public function __construct($id, $nom, $description){
         $this->id = $id;
         $this->nom = $nom;
         $this->description = $description;
-        $this->émissionProposées = $émissionProposées;
     }
 
 
-    public function AddEmission(){
-
+    public function proposerEmission(Emission $emission) {
+        $this->émissionProposées[] = $emission;
     }
 
-    public function EditDetailsEmission(){
-        
+    public function modifierDetails($nom, $description) {
+        $this->nom = $nom;
+        $this->description = $description;
+    }
+
+    public function afficherDetails() {
+        echo "Producteur: {$this->nom} - Description: {$this->description}";
     }
 
 }
