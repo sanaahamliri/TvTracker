@@ -44,23 +44,19 @@ function validateForm() {
 }
 
 
-const slides = document.querySelectorAll('.slideshow img');
-let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelectorAll(".slideshow img");
+    let currentSlide = 0;
 
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) {
-            slide.classList.add('active');
-        }
-    });
-}
+    function showNextSlide() {
+        slides[currentSlide].classList.remove("active");
+        
+        currentSlide = (currentSlide + 1) % slides.length;
 
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
-}
+        slides[currentSlide].classList.add("active");
+    }
 
-setInterval(nextSlide, 3000);
+    slides[currentSlide].classList.add("active");
 
-showSlide(currentIndex);
+    setInterval(showNextSlide, 3000);
+});
