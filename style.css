@@ -184,7 +184,7 @@ text-align: center;
     color: #fff;
 }
 
-.containerContact:after{
+.containerContact::before{
 	content: '';
 	position: absolute;
 	width: 100%;
@@ -252,11 +252,10 @@ textarea{
 	border: none;
 	outline: none;
 	cursor: pointer;
-	transition: .3s;
 }
 
 .btn:hover{
-    background-color:  #9c20b4c9;
+    background-color:  #9b20b4b0;
 }
 
 .field:focus{
@@ -347,7 +346,6 @@ footer {
     color: #fff;
     text-decoration: none;
     margin: 0 15px;
-    transition: color 0.3s ease;
 }
 
 .footer-nav a:hover {
