@@ -8,6 +8,8 @@ menuBtn.addEventListener('click', () => {
 });
 
 
+
+
 function validateForm() {
     let name = document.getElementById("name").value.trim();
     let email = document.getElementById("email").value.trim();
